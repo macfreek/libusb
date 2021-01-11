@@ -1576,10 +1576,9 @@ static int darwin_set_interface_altsetting(struct libusb_device_handle *dev_hand
     /* this should not happen */
     darwin_release_interface (dev_handle, iface);
     usbi_err (HANDLE_CTX (dev_handle), "could not build endpoint table");
-    return ret;
   }
 
-  return darwin_to_libusb (kresult);
+  return ret;
 }
 
 static int darwin_clear_halt(struct libusb_device_handle *dev_handle, unsigned char endpoint) {
