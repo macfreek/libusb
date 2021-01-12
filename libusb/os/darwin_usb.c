@@ -1568,6 +1568,7 @@ static int darwin_set_interface_altsetting(struct libusb_device_handle *dev_hand
 
   kresult = (*(cInterface->interface))->SetAlternateInterface (cInterface->interface, altsetting);
   if (kresult != kIOReturnSuccess)
+    usbi_warn (HANDLE_CTX (dev_handle), "SetAlternateInterface: %s", darwin_error_str(kresult));
     darwin_reset_device (dev_handle);
 
   /* update list of endpoints */
